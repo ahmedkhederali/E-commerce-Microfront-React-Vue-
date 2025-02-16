@@ -7,7 +7,7 @@ export default ()=> {
     const refEle=useRef(null);
     const  history=useHistory()
     useEffect(()=>{
-        mount(refEle.current,{
+        const {onParentNavigation}=mount(refEle.current,{
           onNavigate:({pathname:nextPathname})=>{
             // when child app change path this function is resbonsibe to change Browser url 
             
@@ -20,7 +20,8 @@ export default ()=> {
             }
           }
         })
-    })
+          history.listen(onParentNavigation)
+    },[])
   return (
     <div ref={refEle}/>
   )
