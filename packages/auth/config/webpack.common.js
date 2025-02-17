@@ -1,3 +1,6 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const PackageJson= require('../package.json')
 module.exports ={
     module:{
         rules:[
@@ -17,5 +20,19 @@ module.exports ={
               }
             }
         ]
-    }
+    },
+    plugins: [
+      new ModuleFederationPlugin({
+          name: "auth",
+          filename: "remoteEntry.js",
+          exposes: {
+              "./AuthApp": "./src/bootstarp.js",
+          },
+          // shared:['react','react-dom']
+          shared:PackageJson.dependencies
+      }),
+      new HtmlWebpackPlugin({
+          template: './public/index.html'
+      })
+  ]
 }
