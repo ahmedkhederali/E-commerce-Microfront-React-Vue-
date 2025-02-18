@@ -6,9 +6,11 @@ import { createMemoryHistory , createBrowserHistory } from "history";
 console.log("==========> Markting")
 
 // Mount Function To start app
-const mount = (el,{onNavigate, defaultHistory}) => {
+const mount = (el,{onNavigate, defaultHistory,initalPath}) => {
   // Create a memory history instance
-const history = defaultHistory || createMemoryHistory();
+const history = defaultHistory || createMemoryHistory({
+  initialEntires:[initalPath]
+});
 
 // to fire anything when path change you need to put in lisen
 if(onNavigate){
