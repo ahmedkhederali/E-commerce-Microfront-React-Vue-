@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 import App from './App';
 import { createMemoryHistory , createBrowserHistory } from "history";
 
-console.log("==========> Markting")
+console.log("===========> Markting")
 
 // Mount Function To start app
 const mount = (el,{onNavigate, defaultHistory,initalPath}) => {

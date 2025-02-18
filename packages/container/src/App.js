@@ -18,7 +18,7 @@ export default function App() {
     <StylesProvider generateClassName={generateClassName}>
       <BrowserRouter>
         <Header />
-        <Suspense fallback={<Progress/>}>
+        <Suspense fallback={<Progress/>}> 
           <Switch>
             <Route path="/auth" component={AuthAppLazy} />
             <Route path="/" component={MarketingAppLzy} />
