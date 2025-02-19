@@ -6,7 +6,7 @@ import { createMemoryHistory , createBrowserHistory } from "history";
 console.log("===========> Authing")
 
 // Mount Function To start app
-const mount = (el,{onNavigate, defaultHistory,initalPath}) => {
+const mount = (el,{onSignIn,onNavigate, defaultHistory,initalPath}) => {
   // Create a memory history instance
 const history = defaultHistory || createMemoryHistory({
   initialEntries:[initalPath]
@@ -16,7 +16,7 @@ const history = defaultHistory || createMemoryHistory({
 if(onNavigate){
   history.listen(onNavigate)
 }
-ReactDom.render(<App memoryHistory={history}/>, el)
+ReactDom.render(<App onSignIn={onSignIn} memoryHistory={history}/>, el)
 // to communicate between conatiner and child 
 return {
   onParentNavigation:({pathname:nextPathname})=>{

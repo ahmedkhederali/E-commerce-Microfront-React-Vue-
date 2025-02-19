@@ -3,9 +3,9 @@ import React ,{useRef, useEffect} from 'react'
 import {useHistory} from "react-router-dom"
 // we are make thiscompoant to makeit generic 
 // so u can use the same approach in diffrent framework
-export default ()=> {
+export default ({onSignIn})=> {
     const refEle=useRef(null);
-    const  history=useHistory()
+    const  history=useHistory();
     useEffect(()=>{
         const {onParentNavigation}=mount(refEle.current,{
           initalPath:history.location.pathname,
@@ -19,7 +19,8 @@ export default ()=> {
             if(pathname !== nextPathname){
               history.push(nextPathname)
             }
-          }
+          },
+          onSignIn
         })
           history.listen(onParentNavigation)
     },[])
