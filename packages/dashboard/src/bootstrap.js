@@ -1,7 +1,7 @@
 import {createApp} from 'vue';
 import Dashboard from "./components/Dashboard"
 import PrimeVue from 'primevue/config'
-// Mount function to start up the app
+// Mount function to start up the app 
 const mount = (el) => {
   const app=createApp(Dashboard);
   app.use(PrimeVue)
